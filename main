@@ -9,7 +9,7 @@ df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapmi
 external_stylesheets = ['https://raw.githubusercontent.com/TomTomen/py/main/styles.css']
 
 app = Dash(__name__, external_stylesheets=external_stylesheets)
-
+server = app.server
 
 
 app.layout = html.Div(style = {'height': '150vh'}, children  = [
