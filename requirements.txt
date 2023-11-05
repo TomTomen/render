@@ -1,5 +1,5 @@
 plotly
 pandas
-dash==2.14.0
-dash-bootstrap-components==1.5.0
-dash-draggable==0.1.2
+dash
+dash-bootstrap-components
+dash-draggable
