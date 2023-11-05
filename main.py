@@ -63,7 +63,7 @@ app.layout = html.Div(style = {'height': '150vh'}, children  = [
     )
 ])
 #app.css.append_css({"external_url": "https://raw.githubusercontent.com/TomTomen/py/main/styles.css"})
-@callback(
+@app.callback(
     Output('graph-content', 'figure'),
     Input('dropdown-selection', 'value'),
     Input('dropdown-selection_2', 'value'),
@@ -78,7 +78,7 @@ def update_graph(selected_country, measure, selected_years):
     return px.line(dff, x='year', y=measure, color='country')
     
     
-@callback(
+@app.callback(
     Output('top-population', 'figure'),
     Input('dropdown-selection_2', 'value'),
     Input('year-slider', 'value'),
@@ -93,7 +93,7 @@ def update_bar(measure, selected_years, point):
     dff = dff.groupby('country').sum()[[measure]].sort_values(measure, ascending = False)[:15]
     return px.bar(dff)
     
-@callback(
+@app.callback(
     Output('pie-pop', 'figure'),
     Input('year-slider', 'value'),
     Input('graph-content', 'clickData'),
@@ -128,7 +128,7 @@ def update_pie(selected_years, point,selected_radio,x,y,size):
 #        names = dff.index.tolist()
 #        return px.pie(values=values[:7], names=names[:7])
 
-@callback(
+@app.callback(
     Output('bubble-chart', 'figure'),
     Input('year-slider', 'value'),
     Input('graph-content', 'clickData')
